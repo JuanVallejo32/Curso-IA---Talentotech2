@@ -2,8 +2,7 @@
 
  ## Predicción de producción agrícola
 
-   >Esta aplicación de predicción agrícola, basada en técnicas de inteligencia artificial,    permite optimizar el rendimiento de los cultivos mediante el análisis de datos históricos de producción. Su objetivo es facilitar la toma de decisiones informadas para 
-    pequeños y medianos agricultores en Colombia, maximizando la eficiencia en el uso de recursos, reduciendo las pérdidas agrícolas y promoviendo la sostenibilidad de la producción.
+   >Esta aplicación de predicción agrícola, basada en técnicas de inteligencia artificial, permite optimizar el rendimiento de los cultivos mediante el análisis de datos históricos de producción. Su objetivo es facilitar la toma de decisiones informadas para pequeños y medianos agricultores en Colombia, maximizando la eficiencia en el uso de recursos, reduciendo las pérdidas agrícolas y promoviendo la sostenibilidad de la producción.
 
   ## Integrantes
    * Elizabeth Rojas Vargas
@@ -29,9 +28,7 @@ source env/bin/activate  o si  usas Windows: `env\Scripts\activate`
 
 3. **Instalar las dependencias:**
 ```bash
-pip install Flask
-pip install nltk
-pip install scikit-learn
+pip install requirements.txt
 ```
 
  4. **Para iniciar la aplicación:**
