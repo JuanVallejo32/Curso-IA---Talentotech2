@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predicción de Rendimiento</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+<body class="p-5">
+    <div class="grid grid-cols-2 gap-4">
+        <div class="bg-gray-100 p-4 shadow rounded">
+            <h1 class="text-3xl font-bold text-center ">Predicción de Rendimiento Agrícola</h1>
+            <p class="my-5">¡Bienvenido! Por favor, selecciona el producto de interés e ingresa el área y la producción en las casillas correspondientes para
+                obtener una predicción estimada de rendimiento. En esta aplicación podrás predecir el rendimiento de tus cultivos de café, banano ó cacao </p>
+        <div class="mt-6 bg-white p-4 border border-gray-300 rounded-md shadow-sm">
+        
+            <form id="predictionForm" action="/predecir_cafe" method="POST">
+                <label for="selectProduct" class="font-semibold">Selecciona el producto:</label>
+                <select class="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500" id="selectProduct" name="select" onchange="updateFormAction()">
+                    <option value="cafe" selected>Café</option>
+                    <option value="cacao">Cacao</option>
+                    <option value="banano">Banano</option>
+                </select>
+
+                <label class="font-semibold block text-gray-700 mt-5" for="Area">Ingresa el área (hectáreas):</label>
+                <input class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500" type="text" id="Area" name="Area" placeholder="Ejemplo: 100" required>
+
+                <label class="font-semibold block text-gray-700 mt-5" for="Production">Ingresa la producción (toneladas):</label>
+                <input class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500" type="text" id="Production" name="Production" placeholder="Ejemplo: 5000" required>
+
+                <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded mt-5" type="submit">Obtener Predicción</button>
+            </form>
+        </div>
+
+            <!-- Mostrar el resultado de la predicción -->
+            {% if prediccion %}
+                <div class="result">
+                    <p class="font-medium text-gray-700 my-5 p-4 text-lg" >{{ prediccion }}</p>
+                </div>
+            {% endif %}
+        </div>
+        <div class="p-4 rounded">
+            <img src="https://i.postimg.cc/SN4XYwyp/imagen-proyecto.png" alt="Ejemplo de Imagen" class="mt-4 rounded">
+        </div> 
+    </div>
+    <script>
+        function updateFormAction() {
+            const form = document.getElementById('predictionForm');
+            const product = document.getElementById('selectProduct').value;
+
+            if (product === 'cafe') {
+                form.action = '/predecir_cafe';
+            } else if (product === 'cacao') {
+                form.action = '/predecir_cacao';
+            } else if (product === 'banano') {
+                form.action = '/predecir_banano';
+            }
+        }
+    </script>
+</body>
+</html>
